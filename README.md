@@ -46,7 +46,7 @@ If requirements.txt is not available, install Django manually:
 
 ## License
 This project is licensed under the MIT License.
-    ```yaml
+    ```
 
     ---
 
