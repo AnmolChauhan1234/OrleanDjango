@@ -46,9 +46,6 @@ If requirements.txt is not available, install Django manually:
 
 ## License
 This project is licensed under the MIT License.
-    ---
-
-    Adding detailed commands ensures that your `README.md` is comprehensive and user-friendly for anyone who wants to run your project.
 
 
 
