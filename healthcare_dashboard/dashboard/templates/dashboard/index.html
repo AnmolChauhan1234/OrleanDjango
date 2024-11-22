@@ -12,55 +12,59 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     
+    <!-- Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
     <!-- Custom CSS file -->
     <link rel="stylesheet" href="{% static 'css/HealthcareForm.css' %}">
 </head>
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-dark bg-dark fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                Healthcare
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
-                        Profile
-                    </h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <header>
+        <div class="navbar">
+            <!-- Logo -->
+            <div class="nav-logo border">
+                <p class="nav-second">HealthCare</p>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="nav-search">
+                <i class="fa-solid fa-stethoscope search-logo"></i>
+                <input class="search-input" type="text" placeholder="Search...">
+                <div class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <form class="d-flex mt-3" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-success" type="submit">Search</button>
-                    </form>
+            </div>
+            
+            <!-- Dashboard Navigation -->
+            <div class="nav-links border">
+                <p class="nav-second">Dashboard</p>
+            </div>
+            <div class="nav-links border">
+                <p class="nav-second">About</p>
+            </div>
+            <div class="nav-links border">
+                <p class="nav-second">Reports</p>
+            </div>
+            
+            <!-- Notifications -->
+            <div class="nav-notifications border">
+                <i class="fa-solid fa-bell"></i>
+                <p class="nav-second">Notifications</p>
+            </div>
+            
+            <!-- Profile with Dropdown -->
+            <div class="nav-profile border" onclick="toggleDropdown()">
+                <i class="fa-regular fa-user"></i>
+                <div class="dropdown" id="profileDropdown">
+                    <p class="dropdown-item">Appointments</p>
+                    <p class="dropdown-item">Settings</p>
+                    <p class="dropdown-item">Logout</p>
                 </div>
             </div>
         </div>
-    </nav>
+    </header>
 
     <!-- Form Section -->
     <div class="form-container" style="padding-top: 80px;">
@@ -143,5 +147,20 @@
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script>
+        function toggleDropdown() {
+            const dropdown = document.getElementById('profileDropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Close the dropdown if clicked outside
+        document.addEventListener('click', function (e) {
+            const profile = document.querySelector('.nav-profile');
+            const dropdown = document.getElementById('profileDropdown');
+            if (!profile.contains(e.target)) {
+                dropdown.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
